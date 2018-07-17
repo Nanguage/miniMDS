@@ -33,7 +33,7 @@ def matFromDixon(path, chrom):
 
 def plotLevels(mat):
 	smoothingFactors = [1, 2, 3, 8, 33]	#these smoothing factors were selected to demonstrate to best demonstrate TAD levels
-	domainsToInclude = [range(1, 15), [2,3,4,5], [7], [1,6], [3]]	#selected domains from these smoothing factors to maximize prettiness	
+	domainsToInclude = [list(range(1, 15)), [2,3,4,5], [7], [1,6], [3]]	#selected domains from these smoothing factors to maximize prettiness	
 	all_tads = []
 	for i in range(len(smoothingFactors)):	
 		smoothingFactor = smoothingFactors[i]

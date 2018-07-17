@@ -184,7 +184,7 @@ def chromFromBed(path):
 	"""Initialize ChromParams from intrachromosomal file in BED format"""
 	minPos = sys.float_info.max
 	maxPos = 0
-	print "Scanning {}".format(path)
+	print("Scanning {}".format(path))
 	with open(path) as infile:
 		for i, line in enumerate(infile):
 			line = line.strip().split()
@@ -207,7 +207,7 @@ def chromFromBed(path):
 	return ChromParameters(minPos, maxPos, res, name, i)
 
 def basicParamsFromBed(path):
-	print "Scanning {}".format(path)
+	print("Scanning {}".format(path))
 	with open(path) as infile:
 		for i, line in enumerate(infile):
 			if i == 0:
@@ -248,7 +248,7 @@ def matFromBed(path, structure=None):
 	at.makeSymmetric(mat)	
 	rowsums = np.array([sum(row) for row in mat])
 	if len(np.where(rowsums == 0)[0]) != 0:
-		print np.array(structure.getGenCoords())[np.where(rowsums == 0)[0]]
+		print(np.array(structure.getGenCoords())[np.where(rowsums == 0)[0]])
 		sys.exit(1)
 	assert len(np.where(rowsums == 0)[0]) == 0
 
@@ -320,7 +320,7 @@ def make_compatible(structures):
 	
 	consensus = []
 	n = len(structures)
-	for gen_coord in gen_coord_dict.keys():
+	for gen_coord in list(gen_coord_dict.keys()):
 		if gen_coord_dict[gen_coord] == n:
 			consensus.append(gen_coord)
 

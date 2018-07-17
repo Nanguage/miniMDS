@@ -24,7 +24,7 @@ for i, (tot, count), in enumerate(zip(tots, counts)):
 	if count != 0:
 		avgs[i] = tot/count
 
-plt.plot(range(n-1), avgs)
+plt.plot(list(range(n-1)), avgs)
 plt.xlabel("Separation (number of bins)")
 plt.ylabel("Average contact frequency")
 plt.show()

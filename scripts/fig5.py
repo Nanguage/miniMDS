@@ -51,7 +51,7 @@ rs[3] = rep_correlation(coords1, coords2)
 #coords2 = np.loadtxt("ChromSDE/GM12878_combined_22_10kb_rep2_coords.tsv")
 #rs[5] = rep_correlation(coords1, coords2)
 
-x_pos = range(n) 
+x_pos = list(range(n)) 
 colors = ["y", "r", "b", "c", "m", "blueviolet"]
 rects = plt.bar(x_pos, rs, align="center", color = colors)
 plt.tick_params(top=False,bottom=False,right=False,left=False, labelbottom=False)

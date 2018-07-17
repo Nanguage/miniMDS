@@ -13,7 +13,7 @@ class Tracker(object):
 			newPercentage = self.currPercentage + 1
 			if float(self.count)/self.size >= float(newPercentage)/100:	#if at least X% of the file has been read, print percentage
 				self.currPercentage = newPercentage
-				print "{} {}% complete".format(self.name, self.currPercentage)	
+				print("{} {}% complete".format(self.name, self.currPercentage))	
 
 def args_are_valid(args, names, intervals):	
 	valid_args = True
@@ -22,11 +22,11 @@ def args_are_valid(args, names, intervals):
 		upper_bound = interval[1]
 		if lower_bound is not None:
 			if arg <= float(lower_bound):
-				print "Error. {} must be > {}.".format(name, lower_bound)
+				print("Error. {} must be > {}.".format(name, lower_bound))
 				valid_args = False
 		if upper_bound is not None:
 			if arg >= float(upper_bound):
-				print "Error. {} must be < {}.".format(name, upper_bound)
+				print("Error. {} must be < {}.".format(name, upper_bound))
 				valid_args = False
 	return valid_args
 
@@ -34,6 +34,6 @@ def get_res_string(res):
 	"""Converts resolution in bp to string (e.g. 10kb)"""
 	res_kb = res/1000
 	if res_kb < 1000:
-		return str(res_kb) + "kb"
+		return str(int(res_kb)) + "kb"
 	else:
-		return str(res_kb/1000) + "mb"	 
+		return str(int(res_kb/1000)) + "mb"	 

@@ -43,7 +43,7 @@ def get_inter_mat(prefix, inter_res_string, intra_res_string, structures, offset
 				path = "{}_{}_{}.bed".format(prefix, names[i], intra_res_string)
 			else:
 				path = "{}_{}_{}_{}.bed".format(prefix, names[j], names[i], inter_res_string)
-			print "Reading {}".format(path)
+			print("Reading {}".format(path))
 			with open(path) as bed:
 				for line in bed:
 					line = line.strip().split()
@@ -135,7 +135,7 @@ def main():
 
 	if len(args.c) == 0:
 		if args.C:
-			chrom_names = range(1, args.C+1)
+			chrom_names = list(range(1, args.C+1))
 		else:
 			chrom_names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, "X"]
 	else:

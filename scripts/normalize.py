@@ -1,5 +1,10 @@
 import numpy as np
 import argparse
+
+import sys
+from os.path import realpath, join, dirname
+HERE = join(dirname(realpath(__file__)), "../")
+sys.path.insert(0, HERE)
 import tools
 
 def get_chrom_num(chrom):
@@ -52,6 +57,7 @@ def normalize_intra(hic_id, res, chrom):
 	krpath = "{}/{}_resolution_intrachromosomal/chr{}/MAPQGE30/chr{}_{}.KRnorm".format(hic_id, res_string, chrom, chrom, res_string)
 	outpath = "{}_{}_{}.bed".format(hic_id, chrom, res_string)
 	chromstring = "chr" + chrom
+	print(krpath, res_string)
 	normalize(chromstring, chromstring, rawpath, krpath, None, res, outpath)
 
 def main():
