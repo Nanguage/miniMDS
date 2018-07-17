@@ -6,10 +6,10 @@ sys.path.append("..")
 import data_tools as dt
 
 def rep_correlation(coords1, coords2):
-	dists1 = misc.distsFromCoords(coords1)
-	dists2 = misc.distsFromCoords(coords2)
+    dists1 = misc.distsFromCoords(coords1)
+    dists2 = misc.distsFromCoords(coords2)
 
-	return misc.pearson(dists1, dists2)
+    return misc.pearson(dists1, dists2)
 
 
 #labels = ("Chromosome3D", "mMDS", "miniMDS", "MOGEN", "HSA", "ChromSDE")

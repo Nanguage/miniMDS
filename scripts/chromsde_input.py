@@ -17,6 +17,6 @@ np.savetxt(mat_path, contactMat, formatstring, delimiter="\t")
 name = structure.chrom.name
 name = name[3:len(name)]	#remove "chr"
 with open(id_path, "w") as out:
-	for i, point in enumerate(structure.getPoints()):
-		out.write("\t".join((name, str(structure.chrom.minPos + point.num*structure.chrom.res), str(structure.chrom.minPos + (point.num+1)*structure.chrom.res), str(i+1))) + "\n")
+    for i, point in enumerate(structure.getPoints()):
+        out.write("\t".join((name, str(structure.chrom.minPos + point.num*structure.chrom.res), str(structure.chrom.minPos + (point.num+1)*structure.chrom.res), str(i+1))) + "\n")
 out.close()

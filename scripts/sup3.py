@@ -13,7 +13,7 @@ contactMat = dt.matFromBed(bedpath, mmds_structure)
 mmds_true_mat = at.contactToDist(contactMat)
 at.makeSymmetric(mmds_true_mat)
 for j in range(len(mmds_true_mat)):	#remove diagonal
-	mmds_true_mat[j,j] = 0
+    mmds_true_mat[j,j] = 0
 mmds_distMat = misc.distMat(mmds_structure)
 mmds_r = misc.pearson(mmds_true_mat, mmds_distMat)
 
@@ -22,7 +22,7 @@ contactMat = dt.matFromBed(bedpath, cmds_structure)
 cmds_true_mat = at.contactToDist(contactMat)
 at.makeSymmetric(cmds_true_mat)
 for j in range(len(cmds_true_mat)):	#remove diagonal
-	cmds_true_mat[j,j] = 0
+    cmds_true_mat[j,j] = 0
 cmds_distMat = misc.distMat(cmds_structure)
 cmds_r = misc.pearson(cmds_true_mat, cmds_distMat)
 
@@ -31,7 +31,7 @@ contactMat = dt.matFromBed(bedpath, minimds_structure)
 minimds_true_mat = at.contactToDist(contactMat)
 at.makeSymmetric(minimds_true_mat)
 for j in range(len(minimds_true_mat)):	#remove diagonal
-	minimds_true_mat[j,j] = 0
+    minimds_true_mat[j,j] = 0
 minimds_distMat = misc.distMat(minimds_structure)
 minimds_r = misc.pearson(minimds_true_mat, minimds_distMat)
 

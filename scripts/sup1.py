@@ -11,23 +11,23 @@ x_pos = np.arange(len(labels))
 #in_file.close()
 
 with open("mmds_chr22_100kb_time.txt") as in_file:
-	mmds_time = float(in_file.readline().strip())/60	#time in minutes
+    mmds_time = float(in_file.readline().strip())/60	#time in minutes
 in_file.close()
 
 with open("cmds_chr22_100kb_time.txt") as in_file:
-	cmds_time = float(in_file.readline().strip())/60	#time in minutes
+    cmds_time = float(in_file.readline().strip())/60	#time in minutes
 in_file.close()
 
 with open("minimds_chr22_100kb_time.txt") as in_file:
-	minimds_time = float(in_file.readline().strip())/60	#time in minutes
+    minimds_time = float(in_file.readline().strip())/60	#time in minutes
 in_file.close()
 
 with open("mogen_chr22_100kb_time.txt") as in_file:
-	mogen_time = float(in_file.readline().strip())/60	#time in minutes
+    mogen_time = float(in_file.readline().strip())/60	#time in minutes
 in_file.close()
 
 with open("hsa_chr22_100kb_time.txt") as in_file:
-	hsa_time = float(in_file.readline().strip())/60	#time in minutes
+    hsa_time = float(in_file.readline().strip())/60	#time in minutes
 in_file.close()
 
 #with open("chromsde_chr22_100kb_time.txt") as in_file:

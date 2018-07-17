@@ -13,8 +13,8 @@ fullMat = np.zeros((n, n+2))
 
 #locus IDs
 for i, pointNum in enumerate(structure.getPointNums()):
-	fullMat[i,0] = structure.chrom.minPos + structure.chrom.res * pointNum
-	fullMat[i,1] = structure.chrom.minPos + structure.chrom.res * (pointNum + 1)
+    fullMat[i,0] = structure.chrom.minPos + structure.chrom.res * pointNum
+    fullMat[i,1] = structure.chrom.minPos + structure.chrom.res * (pointNum + 1)
 
 fullMat[:,2:n+2] = contactMat
 

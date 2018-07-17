@@ -7,26 +7,26 @@ chrom_sizes = np.loadtxt("chrom_sizes_{}kb.txt".format(res_kb))
 
 mmds_times = []
 with open("mmds_{}kb_times.txt".format(res_kb)) as in_file:
-	for line in in_file:
-		mmds_times.append(float(line.strip())/60)
+    for line in in_file:
+        mmds_times.append(float(line.strip())/60)
 in_file.close()
 
 cmds_times = []
 with open ("cmds_{}kb_times.txt".format(res_kb)) as in_file:
-	for line in in_file:
-		cmds_times.append(float(line.strip())/60)
+    for line in in_file:
+        cmds_times.append(float(line.strip())/60)
 in_file.close()
 
 minimds_times = []
 with open("minimds_{}kb_times.txt".format(res_kb)) as in_file:
-	for line in in_file:
-		minimds_times.append(float(line.strip())/60)
+    for line in in_file:
+        minimds_times.append(float(line.strip())/60)
 in_file.close()
 
 mogen_times = []
 with open("mogen_{}kb_times.txt".format(res_kb)) as in_file:
-	for line in in_file:
-		mogen_times.append(float(line.strip())/60)
+    for line in in_file:
+        mogen_times.append(float(line.strip())/60)
 in_file.close()
 
 fig = plt.figure()

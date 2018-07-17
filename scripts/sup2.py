@@ -2,23 +2,23 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 with open("chromosome3d_chr22_100kb_memory.txt") as in_file:
-	chromthreed_mem = float(in_file.readline().strip())
+    chromthreed_mem = float(in_file.readline().strip())
 in_file.close()
 
 with open("mmds_chr22_100kb_memory.txt") as in_file:
-	mmds_mem = float(in_file.readline().strip())
+    mmds_mem = float(in_file.readline().strip())
 in_file.close()
 
 with open("cmds_chr22_100kb_memory.txt") as in_file:
-	cmds_mem = float(in_file.readline().strip())
+    cmds_mem = float(in_file.readline().strip())
 in_file.close()
 
 with open("minimds_chr22_100kb_memory.txt") as in_file:
-	minimds_mem = float(in_file.readline().strip())
+    minimds_mem = float(in_file.readline().strip())
 in_file.close()
 
 with open("mogen_chr22_100kb_memory.txt") as in_file:
-	mogen_mem = float(in_file.readline().strip())
+    mogen_mem = float(in_file.readline().strip())
 in_file.close()
 
 #with open("chromsde_chr22_100kb_memory.txt") as in_file:
