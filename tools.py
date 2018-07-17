@@ -32,8 +32,8 @@ def args_are_valid(args, names, intervals):
 
 def get_res_string(res):
     """Converts resolution in bp to string (e.g. 10kb)"""
-    res_kb = res/1000
+    res_kb = res//1000
     if res_kb < 1000:
-        return str(int(res_kb)) + "kb"
+        return str(res_kb) + "kb"
     else:
         return str(int(res_kb/1000)) + "mb"	 

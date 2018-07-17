@@ -15,7 +15,7 @@ class ChromParameters(object):
 
     def getLength(self):
         """Number of possible loci"""
-        return (self.maxPos - self.minPos)/self.res + 1
+        return (self.maxPos - self.minPos)//self.res + 1
 
     def getAbsoluteIndex(self, genCoord):
         """Converts genomic coordinate into absolute index. Absolute indexing includes empty (zero) points."""
@@ -31,8 +31,8 @@ class ChromParameters(object):
     def reduceRes(self, resRatio):
         """Creates low-res version of this chromosome"""
         lowRes = self.res * resRatio
-        lowMinPos = (self.minPos/lowRes)*lowRes		#approximate at low resolution
-        lowMaxPos = (self.maxPos/lowRes)*lowRes
+        lowMinPos = (self.minPos//lowRes)*lowRes		#approximate at low resolution
+        lowMaxPos = (self.maxPos//lowRes)*lowRes
         return ChromParameters(lowMinPos, lowMaxPos, lowRes, self.name, self.size)
 
 class Structure(object):
@@ -132,7 +132,7 @@ class Structure(object):
         for i, point in enumerate(self.points):
             if point != 0:
                 x, y, z = point.pos
-                self.points[i].pos = (x/rg, y/rg, z/rg)
+                self.points[i].pos = (x//rg, y//rg, z//rg)
 
 class Point(object):
     """Point in 3-D space"""
@@ -155,7 +155,7 @@ def structureFromBed(path, chrom=None, start=None, end=None, offset=0, tads=None
 
     structure = Structure([], [], chrom, offset)
     
-    structure.points = np.zeros((end - start)/chrom.res + 1, dtype=object)	#true if locus should be added
+    structure.points = np.zeros(int((end - start)/chrom.res) + 1, dtype=object)	#true if locus should be added
     tracker = Tracker("Identifying loci", structure.chrom.size)
 
     #add loci
@@ -171,8 +171,8 @@ def structureFromBed(path, chrom=None, start=None, end=None, offset=0, tads=None
                 #tadNum2 = tadNums[min(pointNum2, maxIndex)]
                 #if pointNum1 != pointNum2 and tadNum1 == tadNum2:		#must be in same TAD
                 if abs_index1 != abs_index2:	#non-self-interacting
-                    structure.points[(pos1 - start)/chrom.res] = Point((0,0,0), structure.chrom, abs_index1, 0)
-                    structure.points[(pos2 - start)/chrom.res] = Point((0,0,0), structure.chrom, abs_index2, 0)
+                    structure.points[int((pos1 - start)/chrom.res)] = Point((0,0,0), structure.chrom, abs_index1, 0)
+                    structure.points[int((pos2 - start)/chrom.res)] = Point((0,0,0), structure.chrom, abs_index2, 0)
             tracker.increment()
         listFile.close()
 
@@ -258,16 +258,16 @@ def highToLow(highstructure, resRatio):
     """Reduces resolution of structure"""
     lowChrom = highstructure.chrom.reduceRes(resRatio)
 
-    low_n = len(highstructure.points)/resRatio + 1
+    low_n = len(highstructure.points)//resRatio + 1
 
-    lowstructure = Structure(np.zeros(low_n, dtype=np.object), [], lowChrom, highstructure.offset/resRatio)
+    lowstructure = Structure(np.zeros(low_n, dtype=np.object), [], lowChrom, highstructure.offset//resRatio)
 
     allPointsToMerge = [[] for i in range(low_n)]
     
     for highPoint in highstructure.getPoints():
         pointsToMerge = []
         high_abs_index = highPoint.absolute_index - highstructure.offset
-        low_abs_index = high_abs_index/resRatio
+        low_abs_index = high_abs_index//resRatio
         allPointsToMerge[low_abs_index].append(highPoint)
 
     index = lowstructure.offset
